@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>S7VEN KEYS</title>
-<link href="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -35,7 +35,7 @@ nav a.nl.active{color:var(--off);}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
 
-/* ── HOME PAGE ── */
+/* HOME */
 .home-hero{
   height:calc(100vh - 52px);
   display:grid;grid-template-columns:1fr 1fr;
@@ -63,7 +63,6 @@ nav a.nl.active{color:var(--off);}
 .home-verse-ref::before{content:'';width:2rem;height:1px;background:var(--g2);}
 .home-bottom{border-top:1px solid #141414;padding-top:2rem;}
 .home-tagline{font-size:0.5rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--mut2);}
-
 .home-right{
   display:flex;flex-direction:column;justify-content:space-between;
   padding:4rem 3.5rem;
@@ -90,8 +89,7 @@ nav a.nl.active{color:var(--off);}
 .sect-wrap{max-width:1100px;margin:0 auto;}
 .sect-header{
   display:grid;grid-template-columns:200px 1fr;
-  border-bottom:1px solid #141414;
-  min-height:120px;
+  border-bottom:1px solid #141414;min-height:120px;
 }
 .sect-header-label{
   padding:2.5rem 2rem;border-right:1px solid #141414;
@@ -113,17 +111,15 @@ nav a.nl.active{color:var(--off);}
 }
 .sect-intro strong{color:var(--off);}
 .sect-intro em{color:var(--g);font-style:italic;}
-.sect-body{padding:0;}
 
-/* ── MESSAGE PAGE ── */
+/* MESSAGE PAGE */
 .msg-verse-hero{
   display:grid;grid-template-columns:200px 1fr;
   border-bottom:1px solid #141414;
 }
 .msg-verse-left{
   border-right:1px solid #141414;padding:4rem 2rem;
-  display:flex;flex-direction:column;justify-content:center;
-  align-items:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
 }
 .msg-seal{width:80px;height:80px;animation:rot 40s linear infinite;opacity:0.6;}
 .msg-verse-right{padding:4rem 3.5rem;}
@@ -139,7 +135,6 @@ nav a.nl.active{color:var(--off);}
   color:var(--mut);display:flex;align-items:center;gap:1rem;
 }
 .verse-ref::before{content:'';width:3rem;height:1px;background:var(--g2);}
-
 .msg-blocks{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #141414;}
 .msg-block{
   padding:3.5rem;border-right:1px solid #141414;border-bottom:1px solid #141414;
@@ -158,22 +153,20 @@ nav a.nl.active{color:var(--off);}
 .msg-confession{
   grid-column:1/-1;padding:4rem 3.5rem;
   display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
-  border-bottom:1px solid #141414;
-  background:rgba(107,26,42,0.06);
+  border-bottom:1px solid #141414;background:rgba(107,26,42,0.06);
 }
 .msg-confession-verse{
   font-family:'Playfair Display',serif;font-style:italic;
   font-size:clamp(1.2rem,2.5vw,1.9rem);color:var(--off);line-height:1.6;
 }
 .msg-confession-verse em{color:var(--g);}
-.msg-confession-right{}
 .msg-confession-body{
   font-family:'Playfair Display',serif;font-size:0.95rem;
   line-height:1.9;color:var(--mut);margin-bottom:2rem;
 }
 .msg-confession-body strong{color:var(--off);}
 
-/* ── CLOTHING PAGE ── */
+/* CLOTHING PAGE */
 .shop-intro{
   display:grid;grid-template-columns:200px 1fr;
   border-bottom:1px solid #141414;
@@ -193,7 +186,6 @@ nav a.nl.active{color:var(--off);}
   line-height:1.85;color:var(--mut);max-width:480px;
 }
 .shop-coming-body strong{color:var(--off);}
-
 .shop-placeholder-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   border-left:1px solid #141414;
@@ -225,11 +217,9 @@ nav a.nl.active{color:var(--off);}
   padding:3.5rem;border-top:1px solid #141414;
   display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
 }
-.shop-waitlist-text{}
 .shop-waitlist-label{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);margin-bottom:0.5rem;}
 .shop-waitlist-title{
-  font-family:'Playfair Display',serif;font-size:1.2rem;
-  font-weight:700;color:#fff;
+  font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;
 }
 .waitlist-form{display:flex;gap:0;}
 .waitlist-input{
@@ -248,7 +238,7 @@ nav a.nl.active{color:var(--off);}
 }
 .waitlist-submit:hover{background:#e8b86d;}
 
-/* ── ART PAGE ── */
+/* ART PAGE */
 .art-hero{
   display:grid;grid-template-columns:200px 1fr;
   border-bottom:1px solid #141414;
@@ -258,8 +248,7 @@ nav a.nl.active{color:var(--off);}
   border-left:1px solid #141414;
 }
 .art-piece{
-  border-right:1px solid #141414;border-bottom:1px solid #141414;
-  cursor:pointer;
+  border-right:1px solid #141414;border-bottom:1px solid #141414;cursor:pointer;
 }
 .art-piece:hover .art-piece-img{background:#0d0a07;}
 .art-piece-img{
@@ -268,7 +257,6 @@ nav a.nl.active{color:var(--off);}
   gap:1.2rem;transition:background 0.3s;
 }
 .art-piece-img img{width:clamp(60px,8vw,100px);height:clamp(60px,8vw,100px);}
-.art-piece-img.featured{aspect-ratio:2/1;}
 .art-piece-caption{padding:1.5rem;border-top:1px solid #141414;}
 .art-piece-title{
   font-family:'Playfair Display',serif;font-size:1rem;
@@ -298,7 +286,7 @@ nav a.nl.active{color:var(--off);}
 }
 .art-featured-body strong{color:var(--off);}
 
-/* ── COMMUNITY PAGE ── */
+/* COMMUNITY PAGE */
 .comm-split{
   display:grid;grid-template-columns:1fr 1fr;
   border-bottom:1px solid #141414;min-height:60vh;
@@ -338,8 +326,7 @@ nav a.nl.active{color:var(--off);}
 }
 .comm-manifesto-label{
   border-right:1px solid #141414;padding-right:3rem;
-  display:flex;flex-direction:column;justify-content:center;
-  gap:0.5rem;
+  display:flex;flex-direction:column;justify-content:center;gap:0.5rem;
 }
 .comm-manifesto-text{
   font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.9rem);
@@ -365,17 +352,7 @@ nav a.nl.active{color:var(--off);}
 }
 .comm-role-desc{font-size:0.52rem;letter-spacing:0.1em;color:var(--mut);line-height:1.85;}
 
-/* ── XRPL PAGE ── */
-.xrpl-intro{
-  display:grid;grid-template-columns:200px 1fr;
-  border-bottom:1px solid #141414;
-}
-.xrpl-body-text{padding:3.5rem;}
-.xrpl-body-text p{
-  font-family:'Playfair Display',serif;font-size:1.1rem;
-  line-height:1.9;color:var(--mut);max-width:600px;margin-bottom:2rem;
-}
-.xrpl-body-text p strong{color:var(--off);}
+/* XRPL PAGE */
 .xrpl-stats-row{
   display:grid;grid-template-columns:repeat(4,1fr);
   border-left:1px solid #141414;border-bottom:1px solid #141414;
@@ -391,8 +368,7 @@ nav a.nl.active{color:var(--off);}
   border-left:1px solid #141414;
 }
 .xrpl-nft{
-  border-right:1px solid #141414;border-bottom:1px solid #141414;
-  padding:2.5rem 2.5rem;
+  border-right:1px solid #141414;border-bottom:1px solid #141414;padding:2.5rem 2.5rem;
 }
 .xrpl-nft-badge{
   font-size:0.47rem;letter-spacing:0.25em;text-transform:uppercase;
@@ -416,7 +392,6 @@ nav a.nl.active{color:var(--off);}
   grid-column:1/-1;border-right:1px solid #141414;border-bottom:1px solid #141414;
   padding:2.5rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
 }
-.wr-info{}
 .wr-status{font-size:0.48rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:0.4rem;}
 .wr-desc{font-family:'Playfair Display',serif;font-size:1rem;color:var(--off);font-style:italic;}
 .wr-addr{font-size:0.5rem;letter-spacing:0.12em;color:var(--g);margin-top:0.4rem;display:none;}
@@ -443,6 +418,41 @@ nav a.nl.active{color:var(--off);}
 /* REVEAL */
 .rv{opacity:0;transform:translateY(14px);transition:opacity 0.8s,transform 0.8s;}
 .rv.on{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  nav{padding:0 1.2rem;}
+  .nav-left{gap:1.2rem;}
+  .nav-right{gap:1rem;}
+  nav a.nl{font-size:0.45rem;}
+  .home-hero{grid-template-columns:1fr;grid-template-rows:1fr 1fr;}
+  .home-left{border-right:none;border-bottom:1px solid #141414;padding:2.5rem 1.5rem;}
+  .home-right{padding:2.5rem 1.5rem;}
+  .msg-verse-hero{grid-template-columns:1fr;}
+  .msg-verse-left{display:none;}
+  .msg-blocks{grid-template-columns:1fr;}
+  .msg-block{border-right:none;}
+  .msg-confession{grid-template-columns:1fr;gap:2rem;}
+  .shop-intro{grid-template-columns:1fr;}
+  .shop-intro .sect-header-label{display:none;}
+  .shop-placeholder-grid{grid-template-columns:1fr 1fr;}
+  .shop-waitlist{grid-template-columns:1fr;gap:1.5rem;}
+  .art-hero{grid-template-columns:1fr;}
+  .art-hero .sect-header-label{display:none;}
+  .art-grid{grid-template-columns:1fr;}
+  .art-featured{grid-template-columns:1fr;}
+  .art-featured-img{min-height:200px;}
+  .comm-split{grid-template-columns:1fr;}
+  .comm-half{border-right:none;border-bottom:1px solid #141414;}
+  .comm-manifesto{grid-template-columns:1fr;}
+  .comm-manifesto-label{border-right:none;padding-right:0;margin-bottom:1.5rem;}
+  .comm-roles{grid-template-columns:1fr 1fr;}
+  .sect-header{grid-template-columns:1fr;}
+  .sect-header-label{border-right:none;}
+  .xrpl-stats-row{grid-template-columns:1fr 1fr;}
+  .xrpl-nft-row{grid-template-columns:1fr;}
+  .site-footer{grid-template-columns:1fr;}
+  .fc{border-right:none;border-bottom:1px solid #141414;}
+}
 </style>
 </head>
 <body>
@@ -455,7 +465,7 @@ nav a.nl.active{color:var(--off);}
     <a class="nl" href="#" onclick="showPage('clothing');return false;">Clothing</a>
   </div>
   <div class="nav-center">
-    <img src="https://ibb.co/xKZnvwM2" alt="S7VEN KEYS"/>
+    <img src="https://i.ibb.co/ym2zTK8N/S7venkeys-name-white.png" alt="S7VEN KEYS"/>
   </div>
   <div class="nav-right">
     <a class="nl" href="#" onclick="showPage('art');return false;">Art</a>
@@ -464,7 +474,7 @@ nav a.nl.active{color:var(--off);}
   </div>
 </nav>
 
-<!-- ═══════════════ HOME ═══════════════ -->
+<!-- HOME -->
 <div class="page active" id="page-home">
   <div class="home-hero">
     <div class="home-left">
@@ -481,9 +491,9 @@ nav a.nl.active{color:var(--off);}
     </div>
     <div class="home-right">
       <div class="home-seal-block">
-        <img class="home-seal" src="https://ibb.co/k6WBSy1g" alt="S7VEN KEYS"/>
+        <img class="home-seal" src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt="S7VEN KEYS"/>
         <div class="home-wordmark">
-          <img src="https://ibb.co/xKZnvwM2" alt="S7VEN KEYS"/>
+          <img src="https://i.ibb.co/ym2zTK8N/S7venkeys-name-white.png" alt="S7VEN KEYS"/>
         </div>
         <div class="home-cta-row">
           <a class="nav-enter" href="#" onclick="showPage('message');return false;">Read the Message</a>
@@ -500,12 +510,12 @@ nav a.nl.active{color:var(--off);}
   </div>
 </div>
 
-<!-- ═══════════════ MESSAGE ═══════════════ -->
+<!-- MESSAGE -->
 <div class="page" id="page-message">
   <div class="sect-wrap">
     <div class="msg-verse-hero rv">
       <div class="msg-verse-left">
-        <img class="msg-seal" src="https://ibb.co/k6WBSy1g" alt="seal"/>
+        <img class="msg-seal" src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt="seal"/>
       </div>
       <div class="msg-verse-right">
         <div class="home-verse-label" style="margin-bottom:1.5rem;">Luke 8:10</div>
@@ -515,7 +525,6 @@ nav a.nl.active{color:var(--off);}
         <div class="verse-ref">Luke 8:10 — ESV</div>
       </div>
     </div>
-
     <div class="msg-blocks rv">
       <div class="msg-block">
         <div class="msg-block-label">The Foundation</div>
@@ -538,12 +547,11 @@ nav a.nl.active{color:var(--off);}
         <p class="msg-block-body">God rested on the seventh day. Seven seals. Seven churches. Seven spirits. <strong>Nothing about this number is coincidental.</strong> S7VEN KEYS exists at the completion point — a brand that was finished before it started.</p>
       </div>
     </div>
-
     <div class="msg-confession rv">
       <blockquote class="msg-confession-verse">
         "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, <em>thou shalt be saved.</em>"
       </blockquote>
-      <div class="msg-confession-right">
+      <div>
         <div class="home-verse-label" style="margin-bottom:1.2rem;">Romans 10:9 — KJV</div>
         <p class="msg-confession-body">This is the one requirement. Not a membership fee. Not a follower count. Not an application. <strong>Confess with your mouth. That is your key.</strong></p>
         <a class="nav-enter" href="#" onclick="showPage('community');return false;">Join the Community</a>
@@ -552,41 +560,39 @@ nav a.nl.active{color:var(--off);}
   </div>
 </div>
 
-<!-- ═══════════════ CLOTHING ═══════════════ -->
+<!-- CLOTHING -->
 <div class="page" id="page-clothing">
   <div class="sect-wrap">
     <div class="shop-intro rv">
       <div class="sect-header-label" style="padding:3rem 2rem;border-right:1px solid #141414;display:flex;flex-direction:column;justify-content:flex-end;gap:0.6rem;">
         <span class="sect-num">Clothing</span>
-        <img src="https://ibb.co/k6WBSy1g" alt="" style="width:50px;height:50px;opacity:0.3;margin-top:1rem;"/>
+        <img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt="" style="width:50px;height:50px;opacity:0.3;margin-top:1rem;"/>
       </div>
       <div class="shop-coming">
         <div class="shop-coming-tag">First Drop · Coming Soon</div>
-        <div class="shop-coming-title">Worn by<br/>those who<br/><em>know.</em></div>
+        <div class="shop-coming-title">Worn by those<br/>who <em>know.</em></div>
         <p class="shop-coming-body">Faith in the street. Premium clothing built for those who carry conviction into every room. <strong>Drop 001 is coming.</strong> Get on the list to be first through the door.</p>
       </div>
     </div>
-
     <div class="shop-placeholder-grid rv">
       <div class="shop-item">
-        <div class="shop-item-img"><img src="https://ibb.co/k6WBSy1g" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
+        <div class="shop-item-img"><img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
         <div class="shop-item-overlay"><span>Coming Soon</span></div>
         <div class="shop-item-info"><div class="shop-item-name">S7K Heavyweight Tee</div><div class="shop-item-detail">Drop 001 &nbsp;·&nbsp; TBA</div></div>
       </div>
       <div class="shop-item">
-        <div class="shop-item-img"><img src="https://ibb.co/k6WBSy1g" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
+        <div class="shop-item-img"><img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
         <div class="shop-item-overlay"><span>Coming Soon</span></div>
         <div class="shop-item-info"><div class="shop-item-name">Sacred Geometry Hoodie</div><div class="shop-item-detail">Drop 001 &nbsp;·&nbsp; TBA</div></div>
       </div>
       <div class="shop-item">
-        <div class="shop-item-img"><img src="https://ibb.co/k6WBSy1g" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
+        <div class="shop-item-img"><img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
         <div class="shop-item-overlay"><span>Coming Soon</span></div>
         <div class="shop-item-info"><div class="shop-item-name">Keys Longsleeve</div><div class="shop-item-detail">Drop 001 &nbsp;·&nbsp; TBA</div></div>
       </div>
     </div>
-
     <div class="shop-waitlist rv">
-      <div class="shop-waitlist-text">
+      <div>
         <div class="shop-waitlist-label">Early Access</div>
         <div class="shop-waitlist-title">Get notified before Drop 001 goes live.</div>
       </div>
@@ -598,7 +604,7 @@ nav a.nl.active{color:var(--off);}
   </div>
 </div>
 
-<!-- ═══════════════ ART ═══════════════ -->
+<!-- ART -->
 <div class="page" id="page-art">
   <div class="sect-wrap">
     <div class="art-hero rv">
@@ -613,7 +619,7 @@ nav a.nl.active{color:var(--off);}
     <div class="art-grid rv">
       <div class="art-featured">
         <div class="art-featured-img">
-          <img src="https://ibb.co/k6WBSy1g" alt="777 Logo"/>
+          <img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt="777 Logo"/>
         </div>
         <div class="art-featured-text">
           <div class="art-featured-label">Signature Mark</div>
@@ -622,18 +628,18 @@ nav a.nl.active{color:var(--off);}
         </div>
       </div>
       <div class="art-piece">
-        <div class="art-piece-img"><img src="https://ibb.co/k6WBSy1g" alt=""/></div>
+        <div class="art-piece-img"><img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt=""/></div>
         <div class="art-piece-caption"><div class="art-piece-title">Genesis Series</div><div class="art-piece-sub">Original Works &nbsp;·&nbsp; XRPL Native</div></div>
       </div>
       <div class="art-piece">
-        <div class="art-piece-img"><img src="https://ibb.co/k6WBSy1g" alt=""/></div>
+        <div class="art-piece-img"><img src="https://i.ibb.co/93Cgrvt9/777-LOGO-white-transparent.png" alt=""/></div>
         <div class="art-piece-caption"><div class="art-piece-title">Keys Collection</div><div class="art-piece-sub">Limited Edition &nbsp;·&nbsp; 77 Prints</div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ COMMUNITY ═══════════════ -->
+<!-- COMMUNITY -->
 <div class="page" id="page-community">
   <div class="sect-wrap">
     <div class="sect-header rv">
@@ -672,31 +678,15 @@ nav a.nl.active{color:var(--off);}
       </blockquote>
     </div>
     <div class="comm-roles rv">
-      <div class="comm-role">
-        <div class="comm-role-icon">I</div>
-        <div class="comm-role-name">Confessors</div>
-        <p class="comm-role-desc">Anyone who confesses. The door is open. Start here.</p>
-      </div>
-      <div class="comm-role">
-        <div class="comm-role-icon">II</div>
-        <div class="comm-role-name">Pass Holders</div>
-        <p class="comm-role-desc">Hold a S7VEN Pass. On-chain verified. Private access unlocked.</p>
-      </div>
-      <div class="comm-role">
-        <div class="comm-role-icon">III</div>
-        <div class="comm-role-name">Genesis</div>
-        <p class="comm-role-desc">7 Genesis Key holders. Founders. First and permanent.</p>
-      </div>
-      <div class="comm-role">
-        <div class="comm-role-icon">IV</div>
-        <div class="comm-role-name">Builders</div>
-        <p class="comm-role-desc">Creatives, connectors, photographers. Community that builds the brand.</p>
-      </div>
+      <div class="comm-role"><div class="comm-role-icon">I</div><div class="comm-role-name">Confessors</div><p class="comm-role-desc">Anyone who confesses. The door is open. Start here.</p></div>
+      <div class="comm-role"><div class="comm-role-icon">II</div><div class="comm-role-name">Pass Holders</div><p class="comm-role-desc">Hold a S7VEN Pass. On-chain verified. Private access unlocked.</p></div>
+      <div class="comm-role"><div class="comm-role-icon">III</div><div class="comm-role-name">Genesis</div><p class="comm-role-desc">7 Genesis Key holders. Founders. First and permanent.</p></div>
+      <div class="comm-role"><div class="comm-role-icon">IV</div><div class="comm-role-name">Builders</div><p class="comm-role-desc">Creatives, connectors, photographers. Community that builds the brand.</p></div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ XRPL ═══════════════ -->
+<!-- XRPL / KEYS -->
 <div class="page" id="page-xrpl">
   <div class="sect-wrap">
     <div class="sect-header rv">
@@ -740,7 +730,7 @@ nav a.nl.active{color:var(--off);}
         </div>
       </div>
       <div class="wallet-row">
-        <div class="wr-info">
+        <div>
           <span class="wr-status" id="wstat">Wallet not connected</span>
           <div class="wr-desc">Connect your Xaman wallet to verify holder status and unlock your access.</div>
           <div class="wr-addr" id="waddr"></div>
@@ -754,7 +744,7 @@ nav a.nl.active{color:var(--off);}
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="fc">
-    <div class="fc-logo"><img src="https://ibb.co/xKZnvwM2" alt="S7VEN KEYS"/></div>
+    <div class="fc-logo"><img src="https://i.ibb.co/ym2zTK8N/S7venkeys-name-white.png" alt="S7VEN KEYS"/></div>
     <div class="fc-tag">faith · art · culture<br/>built on the XRP Ledger</div>
   </div>
   <div class="fc">
@@ -784,18 +774,14 @@ function showPage(id){
   document.querySelectorAll('nav a.nl').forEach(a=>a.classList.remove('active'));
   const pg=document.getElementById('page-'+id);
   if(pg){pg.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-  const navMap={home:0,message:0,clothing:1,art:0,community:1,xrpl:0};
-  const links=document.querySelectorAll('nav a.nl');
-  // highlight active
-  links.forEach(l=>{if(l.getAttribute('onclick')&&l.getAttribute('onclick').includes("'"+id+"'"))l.classList.add('active');});
+  document.querySelectorAll('nav a.nl').forEach(l=>{
+    if(l.getAttribute('onclick')&&l.getAttribute('onclick').includes("'"+id+"'"))l.classList.add('active');
+  });
   setTimeout(()=>{
     document.querySelectorAll('#page-'+id+' .rv').forEach(r=>r.classList.add('on'));
   },100);
 }
-// init home reveals
 setTimeout(()=>{document.querySelectorAll('#page-home .rv').forEach(r=>r.classList.add('on'));},100);
-
-// scroll reveals for active page
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.08});
 document.querySelectorAll('.rv').forEach(r=>io.observe(r));
 
@@ -817,7 +803,6 @@ function joinWaitlist(){
     document.querySelector('.waitlist-submit').textContent='✓ Added';
   }
 }
-function joinCommunity(){sendPrompt('I want to join the S7VENKEYS community — what are my next steps?');}
 </script>
 </body>
 </html>
