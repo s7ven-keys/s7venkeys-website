@@ -854,20 +854,12 @@ async function joinWaitlist(){
   btn.textContent='Adding...';
   btn.style.opacity='0.6';
   try{
-    const res=await fetch('https://api.brevo.com/v3/contacts',{
+    const res=await fetch('/api/subscribe',{
       method:'POST',
-      headers:{
-        'accept':'application/json',
-        'content-type':'application/json',
-        'api-key':'YOUR_API_KEY_HERE'
-      },
-      body:JSON.stringify({
-        email:email,
-        listIds:[2],
-        updateEnabled:true
-      })
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({email:email})
     });
-    if(res.ok||res.status===204||res.status===201){
+    if(res.ok){
       e.value='';
       e.placeholder='You\'re on the list.';
       btn.textContent='✓ Added';
