@@ -846,11 +846,39 @@ function connectWallet(){
     addr.style.display='block';addr.textContent='r7Km...S7VEN · 1 S7VEN Pass · Access Granted';
   },2000);
 }
-function joinWaitlist(){
+async function joinWaitlist(){
   const e=document.getElementById('waitlist-email');
-  if(e&&e.value){
-    e.value='';e.placeholder='You\'re on the list.';
-    document.querySelector('.waitlist-submit').textContent='✓ Added';
+  const btn=document.querySelector('.waitlist-submit');
+  if(!e||!e.value)return;
+  const email=e.value;
+  btn.textContent='Adding...';
+  btn.style.opacity='0.6';
+  try{
+    const res=await fetch('https://api.brevo.com/v3/contacts',{
+      method:'POST',
+      headers:{
+        'accept':'application/json',
+        'content-type':'application/json',
+        'api-key':'YOUR_API_KEY_HERE'
+      },
+      body:JSON.stringify({
+        email:email,
+        listIds:[2],
+        updateEnabled:true
+      })
+    });
+    if(res.ok||res.status===204||res.status===201){
+      e.value='';
+      e.placeholder='You\'re on the list.';
+      btn.textContent='✓ Added';
+      btn.style.opacity='1';
+    }else{
+      btn.textContent='Try Again';
+      btn.style.opacity='1';
+    }
+  }catch(err){
+    btn.textContent='Try Again';
+    btn.style.opacity='1';
   }
 }
 </script>
