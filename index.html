@@ -11,301 +11,222 @@ html{scroll-behavior:smooth;}
 :root{
   --g:#c9963a;--g2:#7a5820;--g3:#3d2a0e;
   --w:#6b1a2a;--wl:#8b2a3e;--wd:#3d0d17;
-  --off:#e8e0d0;--mut:#a89880;--mut2:#7a6a58;
+  --off:#e8e0d0;--dim:#2a2520;--mut:#a89880;--mut2:#7a6a58;
 }
 body{background:#000;color:var(--off);font-family:'Space Mono',monospace;overflow-x:hidden;}
 
 /* NAV */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:99;height:56px;
+  position:fixed;top:0;left:0;right:0;z-index:99;height:52px;
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  padding:0 3rem;border-bottom:1px solid #1a1a1a;background:#000;
+  padding:0 2.5rem;border-bottom:1px solid #141414;background:#000;
 }
 .nav-left{display:flex;gap:2.5rem;}
-.nav-center img{height:24px;display:block;}
+.nav-center img{height:25px;display:block;}
 .nav-right{display:flex;justify-content:flex-end;align-items:center;gap:2rem;}
-nav a.nl{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:#c8b89a;text-decoration:none;transition:color 0.25s;}
-nav a.nl:hover,nav a.nl.active{color:var(--g);}
-.nav-enter{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:#000;background:var(--g);padding:0.5rem 1.4rem;text-decoration:none;transition:background 0.25s;border:none;cursor:pointer;}
+nav a.nl{font-size:0.8rem;letter-spacing:0.22em;text-transform:uppercase;color:#c8b89a;text-decoration:none;transition:color 0.25s;}
+nav a.nl:hover{color:var(--g);}
+nav a.nl.active{color:var(--off);}
+.nav-enter{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:#000;background:var(--g);padding:0.45rem 1.2rem;text-decoration:none;transition:background 0.25s;border:none;cursor:pointer;}
 .nav-enter:hover{background:#e8b86d;}
 
 /* PAGE SYSTEM */
-.page{display:none;min-height:100vh;padding-top:56px;animation:fadeIn 0.5s ease;}
+.page{display:none;min-height:100vh;padding-top:52px;animation:fadeIn 0.5s ease;}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
-@keyframes rot{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
 
-/* REVEAL */
-.rv{opacity:0;transform:translateY(18px);transition:opacity 0.9s ease,transform 0.9s ease;}
-.rv.on{opacity:1;transform:none;}
-
-/* ── HOME PAGE ── */
+/* HOME */
 .home-hero{
-  min-height:calc(100vh - 56px);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;
-  padding:5rem 2rem 4rem;
-  position:relative;
+  height:calc(100vh - 52px);
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid #141414;
 }
-.home-glow{
-  position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 60% 50% at 50% 45%,rgba(107,26,42,0.18) 0%,transparent 70%);
+.home-left{
+  border-right:1px solid #141414;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:4rem 3.5rem;
 }
-.home-seal{
-  width:clamp(120px,16vw,180px);height:clamp(120px,16vw,180px);
-  animation:rot 40s linear infinite;margin-bottom:2.5rem;
-  position:relative;z-index:1;
-}
-.home-wordmark{position:relative;z-index:1;margin-bottom:1.5rem;}
-.home-wordmark img{height:clamp(40px,6vw,70px);display:block;margin:0 auto;}
-.home-tagline{
-  font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;
-  color:var(--wl);margin-bottom:3.5rem;position:relative;z-index:1;
-}
-.home-verse-block{
-  position:relative;z-index:1;
-  max-width:600px;margin:0 auto 3.5rem;
-}
+.home-verse-block{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.home-verse-label{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);margin-bottom:2rem;}
 .home-verse{
   font-family:'Playfair Display',serif;font-style:italic;
-  font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:400;
-  color:var(--off);line-height:1.65;
+  font-size:clamp(1.4rem,2.8vw,2.1rem);font-weight:400;
+  color:var(--off);line-height:1.55;letter-spacing:0.01em;
+  max-width:480px;
 }
-.home-verse em{color:var(--g);}
+.home-verse em{color:var(--g);font-style:italic;}
 .home-verse-ref{
-  margin-top:1.2rem;font-size:0.52rem;letter-spacing:0.28em;
+  margin-top:2rem;font-size:0.5rem;letter-spacing:0.25em;
   text-transform:uppercase;color:var(--mut);
-  display:flex;align-items:center;justify-content:center;gap:1rem;
+  display:flex;align-items:center;gap:1rem;
 }
-.home-verse-ref::before,.home-verse-ref::after{content:'';width:2rem;height:1px;background:var(--g2);}
-.home-cta-row{
-  display:flex;gap:1rem;flex-wrap:wrap;
-  justify-content:center;position:relative;z-index:1;
-  margin-bottom:5rem;
+.home-verse-ref::before{content:'';width:2rem;height:1px;background:var(--g2);}
+.home-bottom{border-top:1px solid #141414;padding-top:2rem;}
+.home-tagline{font-size:0.5rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--mut2);}
+.home-right{
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:4rem 3.5rem;
 }
-.btn-solid{
-  font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:#000;background:var(--g);border:none;
-  padding:0.9rem 2.4rem;cursor:pointer;text-decoration:none;
-  display:inline-block;transition:all 0.25s;
+.home-seal-block{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
+.home-seal{width:clamp(100px,14vw,160px);height:clamp(100px,14vw,160px);animation:rot 40s linear infinite;}
+@keyframes rot{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.home-wordmark img{max-width:280px;width:100%;display:block;}
+.home-cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
+.home-nav-links{
+  border-top:1px solid #141414;padding-top:2rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
 }
-.btn-solid:hover{background:#e8b86d;transform:translateY(-2px);}
-.btn-outline{
-  font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--g);background:transparent;border:1px solid var(--g2);
-  padding:0.9rem 2.4rem;cursor:pointer;text-decoration:none;
-  display:inline-block;transition:all 0.25s;
+.home-nav-link{
+  padding:1rem 0;
+  font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--mut);cursor:pointer;transition:color 0.25s;
+  display:flex;align-items:center;gap:0.6rem;
 }
-.btn-outline:hover{border-color:var(--g);transform:translateY(-2px);}
+.home-nav-link:hover{color:var(--g);}
+.home-nav-link::after{content:'→';font-size:0.6rem;}
 
-/* HOME QUICK LINKS */
-.home-links{
-  width:100%;max-width:900px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border:1px solid #1a1a1a;position:relative;z-index:1;
+/* SHARED SECTION LAYOUT */
+.sect-wrap{max-width:1100px;margin:0 auto;}
+.sect-header{
+  display:grid;grid-template-columns:200px 1fr;
+  border-bottom:1px solid #141414;min-height:120px;
 }
-.home-link{
-  padding:1.5rem 1rem;text-align:center;
-  border-right:1px solid #1a1a1a;cursor:pointer;
-  transition:background 0.3s;
+.sect-header-label{
+  padding:2.5rem 2rem;border-right:1px solid #141414;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:0.6rem;
 }
-.home-link:last-child{border-right:none;}
-.home-link:hover{background:rgba(201,150,58,0.05);}
-.home-link-label{
-  font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--mut);transition:color 0.25s;display:block;margin-bottom:0.4rem;
-}
-.home-link:hover .home-link-label{color:var(--g);}
-.home-link-arrow{font-size:0.7rem;color:var(--g2);}
-
-/* HOME CLOTHING PREVIEW */
-.home-clothing{
-  padding:6rem 3rem;
-  max-width:900px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:5rem;align-items:center;
-  border-top:1px solid #1a1a1a;
-}
-.home-clothing-text{}
-.home-clothing-tag{
-  font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--g);display:block;margin-bottom:1.5rem;
-}
-.home-clothing-title{
+.sect-num{font-size:0.47rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g2);}
+.sect-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3rem);font-weight:900;
-  color:#fff;line-height:1.05;margin-bottom:1.5rem;
+  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
+  color:#fff;line-height:1.05;letter-spacing:0.02em;
 }
-.home-clothing-title em{color:var(--g);font-style:italic;}
-.home-clothing-body{
-  font-family:'Playfair Display',serif;
-  font-size:1rem;line-height:1.9;color:var(--mut);margin-bottom:2rem;
+.sect-title em{color:var(--g);font-style:italic;}
+.sect-header-right{
+  padding:2.5rem 3rem;display:flex;flex-direction:column;justify-content:flex-end;
 }
-.home-clothing-body strong{color:var(--off);}
-.home-clothing-img{position:relative;}
-.clothing-card{
-  border:1px solid #1a1a1a;overflow:hidden;cursor:pointer;
-}
-.clothing-card:hover .clothing-card-overlay{opacity:1;}
-.clothing-card-img{
-  aspect-ratio:3/4;background:#080604;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-.clothing-card-img img{width:100%;height:100%;object-fit:cover;}
-.clothing-card-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,0.6);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity 0.3s;
-}
-.clothing-card-overlay span{
-  font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);
-}
-.clothing-card-info{padding:1.2rem 1.5rem;border-top:1px solid #1a1a1a;}
-.clothing-card-name{
+.sect-intro{
   font-family:'Playfair Display',serif;font-size:1rem;
-  font-weight:700;color:var(--off);margin-bottom:0.3rem;
+  line-height:1.85;color:var(--mut);max-width:580px;font-weight:400;
 }
-.clothing-card-detail{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);}
-
-/* ── SHARED PAGE LAYOUT ── */
-.page-wrap{max-width:860px;margin:0 auto;padding:5rem 3rem;}
-.page-header{text-align:center;margin-bottom:5rem;}
-.page-eyebrow{
-  font-size:0.52rem;letter-spacing:0.35em;text-transform:uppercase;
-  color:var(--g);display:block;margin-bottom:1.5rem;
-}
-.page-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;
-  color:#fff;line-height:1.0;letter-spacing:0.02em;margin-bottom:1.5rem;
-}
-.page-title em{color:var(--g);font-style:italic;}
-.page-subtitle{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:clamp(1rem,2vw,1.3rem);color:var(--mut);
-  max-width:520px;margin:0 auto;line-height:1.75;
-}
-.page-divider{
-  width:60px;height:1px;background:var(--g2);
-  margin:2.5rem auto;
-}
+.sect-intro strong{color:var(--off);}
+.sect-intro em{color:var(--g);font-style:italic;}
 
 /* MESSAGE PAGE */
-.msg-verse-full{
-  text-align:center;padding:4rem 0 5rem;
-  border-bottom:1px solid #1a1a1a;margin-bottom:5rem;
+.msg-verse-hero{
+  display:grid;grid-template-columns:200px 1fr;
+  border-bottom:1px solid #141414;
 }
-.msg-verse-full blockquote{
+.msg-verse-left{
+  border-right:1px solid #141414;padding:4rem 2rem;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+}
+.msg-seal{width:80px;height:80px;animation:rot 40s linear infinite;opacity:0.6;}
+.msg-verse-right{padding:4rem 3.5rem;}
+.big-verse{
   font-family:'Playfair Display',serif;font-style:italic;
-  font-size:clamp(1.5rem,3.5vw,2.6rem);font-weight:400;
-  color:var(--off);line-height:1.55;max-width:700px;margin:0 auto 1.5rem;
+  font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:400;
+  color:var(--off);line-height:1.5;letter-spacing:0.01em;
+  max-width:680px;margin-bottom:2rem;
 }
-.msg-verse-full blockquote em{color:var(--g);}
-.msg-verse-full cite{
-  font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--mut);font-style:normal;
-  display:flex;align-items:center;justify-content:center;gap:1rem;
+.big-verse em{color:var(--g);}
+.verse-ref{
+  font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--mut);display:flex;align-items:center;gap:1rem;
 }
-.msg-verse-full cite::before,.msg-verse-full cite::after{content:'';width:2rem;height:1px;background:var(--g2);}
-
-.msg-pillars{display:flex;flex-direction:column;gap:0;}
-.msg-pillar{
-  padding:3rem 0;border-bottom:1px solid #1a1a1a;
-  display:grid;grid-template-columns:80px 1fr;gap:2.5rem;align-items:start;
+.verse-ref::before{content:'';width:3rem;height:1px;background:var(--g2);}
+.msg-blocks{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #141414;}
+.msg-block{
+  padding:3.5rem;border-right:1px solid #141414;border-bottom:1px solid #141414;
 }
-.msg-pillar:last-child{border-bottom:none;}
-.msg-pillar-num{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:3rem;font-weight:400;color:var(--w);opacity:0.4;line-height:1;
-  text-align:right;padding-top:0.2rem;
-}
-.msg-pillar-content{}
-.msg-pillar-title{
+.msg-block:nth-child(even){border-right:none;}
+.msg-block-label{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);margin-bottom:1.5rem;}
+.msg-block-title{
   font-family:'Playfair Display',serif;font-size:1.4rem;
-  font-weight:700;color:#fff;margin-bottom:0.8rem;letter-spacing:0.02em;
+  font-weight:700;color:#fff;margin-bottom:1rem;letter-spacing:0.02em;
 }
-.msg-pillar-body{
-  font-family:'Playfair Display',serif;font-size:1rem;
+.msg-block-body{
+  font-family:'Playfair Display',serif;font-size:0.95rem;
   line-height:1.9;color:var(--mut);
 }
-.msg-pillar-body strong{color:var(--off);}
-.msg-pillar-body em{color:var(--g);font-style:italic;}
-
-.msg-romans{
-  margin-top:5rem;padding:4rem;
-  border:1px solid #1a1a1a;text-align:center;
-  background:rgba(107,26,42,0.07);
+.msg-block-body strong{color:var(--off);}
+.msg-confession{
+  grid-column:1/-1;padding:4rem 3.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+  border-bottom:1px solid #141414;background:rgba(107,26,42,0.06);
 }
-.msg-romans blockquote{
+.msg-confession-verse{
   font-family:'Playfair Display',serif;font-style:italic;
-  font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--off);line-height:1.6;
-  max-width:580px;margin:0 auto 1.5rem;
+  font-size:clamp(1.2rem,2.5vw,1.9rem);color:var(--off);line-height:1.6;
 }
-.msg-romans blockquote em{color:var(--g);}
-.msg-romans cite{
-  font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--mut);font-style:normal;
-  display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;
+.msg-confession-verse em{color:var(--g);}
+.msg-confession-body{
+  font-family:'Playfair Display',serif;font-size:0.95rem;
+  line-height:1.9;color:var(--mut);margin-bottom:2rem;
 }
-.msg-romans cite::before,.msg-romans cite::after{content:'';width:2rem;height:1px;background:var(--g2);}
+.msg-confession-body strong{color:var(--off);}
 
 /* CLOTHING PAGE */
-.shop-hero{
-  text-align:center;padding:4rem 0 3rem;
-  border-bottom:1px solid #1a1a1a;margin-bottom:4rem;
+.shop-intro{
+  display:grid;grid-template-columns:200px 1fr;
+  border-bottom:1px solid #141414;
 }
-.shop-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1px;border:1px solid #1a1a1a;margin-bottom:4rem;
+.shop-coming{
+  padding:5rem 3.5rem;
+  display:flex;flex-direction:column;justify-content:center;gap:1.5rem;
 }
-.shop-card{
-  background:#000;position:relative;overflow:hidden;cursor:pointer;
-  transition:background 0.3s;
+.shop-coming-tag{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);}
+.shop-coming-title{
+  font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:900;color:#fff;line-height:1.05;
 }
-.shop-card:hover{background:#080604;}
-.shop-card:hover .shop-overlay{opacity:1;}
-.shop-card-img{
-  aspect-ratio:3/4;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;background:#080604;
+.shop-coming-title em{color:var(--g);font-style:italic;}
+.shop-coming-body{
+  font-family:'Playfair Display',serif;font-size:1rem;
+  line-height:1.85;color:var(--mut);max-width:480px;
 }
-.shop-card-img img{width:100%;height:100%;object-fit:cover;}
-.shop-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,0.6);
+.shop-coming-body strong{color:var(--off);}
+.shop-placeholder-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-left:1px solid #141414;
+}
+.shop-item{
+  border-right:1px solid #141414;border-bottom:1px solid #141414;
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.shop-item:hover .shop-item-overlay{opacity:1;}
+.shop-item-img{
+  aspect-ratio:3/4;background:#0a0806;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+}
+.shop-item-img img{width:60px;height:60px;opacity:0.2;}
+.shop-item-placeholder{font-size:0.48rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--mut2);}
+.shop-item-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,0.75);
   display:flex;align-items:center;justify-content:center;
   opacity:0;transition:opacity 0.3s;
 }
-.shop-overlay span{font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);}
-.shop-card-info{padding:1.5rem;border-top:1px solid #1a1a1a;}
-.shop-card-badge{
-  font-size:0.45rem;letter-spacing:0.25em;text-transform:uppercase;
-  color:var(--g);border:1px solid var(--g2);
-  padding:0.2rem 0.6rem;display:inline-block;margin-bottom:0.8rem;
-}
-.shop-card-name{
-  font-family:'Playfair Display',serif;font-size:1.1rem;
-  font-weight:700;color:#fff;margin-bottom:0.3rem;
-}
-.shop-card-detail{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);}
-
-.shop-waitlist-block{
-  padding:3.5rem;border:1px solid #1a1a1a;text-align:center;
-}
-.shop-waitlist-title{
-  font-family:'Playfair Display',serif;font-size:1.5rem;
-  font-weight:700;color:#fff;margin-bottom:0.6rem;
-}
-.shop-waitlist-sub{
+.shop-item-overlay span{font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);}
+.shop-item-info{padding:1.2rem 1.5rem;border-top:1px solid #141414;}
+.shop-item-name{
   font-family:'Playfair Display',serif;font-size:0.95rem;
-  color:var(--mut);margin-bottom:2rem;
+  font-weight:700;color:var(--off);margin-bottom:0.3rem;
 }
-.waitlist-form{display:flex;justify-content:center;gap:0;max-width:480px;margin:0 auto;}
+.shop-item-detail{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);}
+.shop-waitlist{
+  padding:3.5rem;border-top:1px solid #141414;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
+}
+.shop-waitlist-label{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);margin-bottom:0.5rem;}
+.shop-waitlist-title{
+  font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;
+}
+.waitlist-form{display:flex;gap:0;}
 .waitlist-input{
   font-family:'Space Mono',monospace;font-size:0.55rem;
   letter-spacing:0.1em;background:#000;border:1px solid #222;
-  border-right:none;color:var(--off);padding:0.85rem 1.2rem;
-  flex:1;outline:none;
+  border-right:none;color:var(--off);padding:0.8rem 1.2rem;
+  width:260px;outline:none;
 }
 .waitlist-input:focus{border-color:var(--g2);}
 .waitlist-input::placeholder{color:var(--mut2);}
@@ -313,224 +234,224 @@ nav a.nl:hover,nav a.nl.active{color:var(--g);}
   font-family:'Space Mono',monospace;font-size:0.5rem;
   letter-spacing:0.2em;text-transform:uppercase;
   color:#000;background:var(--g);border:none;
-  padding:0.85rem 1.5rem;cursor:pointer;transition:background 0.25s;white-space:nowrap;
+  padding:0.8rem 1.5rem;cursor:pointer;transition:background 0.25s;white-space:nowrap;
 }
 .waitlist-submit:hover{background:#e8b86d;}
 
 /* ART PAGE */
-.art-featured-block{
+.art-hero{
+  display:grid;grid-template-columns:200px 1fr;
+  border-bottom:1px solid #141414;
+}
+.art-grid{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:4rem;align-items:center;
-  padding:4rem 0 5rem;border-bottom:1px solid #1a1a1a;margin-bottom:5rem;
+  border-left:1px solid #141414;
 }
-.art-featured-visual{
-  background:#080604;border:1px solid #1a1a1a;
-  display:flex;align-items:center;justify-content:center;
-  aspect-ratio:1;
+.art-piece{
+  border-right:1px solid #141414;border-bottom:1px solid #141414;cursor:pointer;
 }
-.art-featured-visual img{width:60%;height:60%;object-fit:contain;}
-.art-featured-info{}
-.art-featured-tag{font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:1.2rem;}
+.art-piece:hover .art-piece-img{background:#0d0a07;}
+.art-piece-img{
+  aspect-ratio:1;background:#080604;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.2rem;transition:background 0.3s;
+}
+.art-piece-img img{width:clamp(60px,8vw,100px);height:clamp(60px,8vw,100px);}
+.art-piece-caption{padding:1.5rem;border-top:1px solid #141414;}
+.art-piece-title{
+  font-family:'Playfair Display',serif;font-size:1rem;
+  font-weight:700;color:var(--off);margin-bottom:0.4rem;
+}
+.art-piece-sub{font-size:0.48rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mut);}
+.art-featured{
+  grid-column:1/-1;border-right:1px solid #141414;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.art-featured-img{
+  border-right:1px solid #141414;
+  background:#080604;display:flex;align-items:center;justify-content:center;
+  min-height:320px;
+}
+.art-featured-img img{width:clamp(80px,12vw,140px);height:clamp(80px,12vw,140px);}
+.art-featured-text{padding:3rem;}
+.art-featured-label{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);margin-bottom:1.2rem;}
 .art-featured-title{
-  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);
-  font-weight:900;color:#fff;line-height:1.05;margin-bottom:1.2rem;
+  font-family:'Playfair Display',serif;font-size:1.6rem;
+  font-weight:900;color:#fff;margin-bottom:1rem;line-height:1.1;
 }
 .art-featured-title em{color:var(--g);font-style:italic;}
 .art-featured-body{
-  font-family:'Playfair Display',serif;font-size:1rem;
+  font-family:'Playfair Display',serif;font-size:0.95rem;
   line-height:1.9;color:var(--mut);
 }
 .art-featured-body strong{color:var(--off);}
-.art-coming{
-  display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  border:1px solid #1a1a1a;
-}
-.art-coming-card{
-  padding:3rem 2.5rem;background:#000;
-  border-right:1px solid #1a1a1a;transition:background 0.3s;
-}
-.art-coming-card:last-child{border-right:none;}
-.art-coming-card:hover{background:#080604;}
-.art-coming-num{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:2.5rem;color:var(--w);opacity:0.3;margin-bottom:1rem;line-height:1;
-}
-.art-coming-title{
-  font-family:'Playfair Display',serif;font-size:1.1rem;
-  font-weight:700;color:var(--off);margin-bottom:0.6rem;
-}
-.art-coming-sub{font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mut);}
 
 /* COMMUNITY PAGE */
-.comm-verse{
-  text-align:center;padding:3rem 0 4rem;
-  border-bottom:1px solid #1a1a1a;margin-bottom:4rem;
-}
-.comm-verse blockquote{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:clamp(1.1rem,2.5vw,1.7rem);color:var(--mut);
-  max-width:580px;margin:0 auto;line-height:1.7;
-}
-.comm-verse blockquote em{color:var(--off);}
-.comm-platforms{
+.comm-split{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;border:1px solid #1a1a1a;margin-bottom:4rem;
+  border-bottom:1px solid #141414;min-height:60vh;
 }
-.comm-platform{
-  padding:3.5rem 3rem;background:#000;
-  border-right:1px solid #1a1a1a;
-  display:flex;flex-direction:column;gap:1.5rem;
+.comm-half{
+  padding:4rem 3.5rem;border-right:1px solid #141414;
+  display:flex;flex-direction:column;justify-content:space-between;
 }
-.comm-platform:last-child{border-right:none;}
-.comm-platform-tag{font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);}
+.comm-half:last-child{border-right:none;}
+.comm-platform-tag{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);margin-bottom:1.5rem;}
 .comm-platform-name{
-  font-family:'Playfair Display',serif;font-size:2.2rem;
-  font-weight:900;color:#fff;letter-spacing:0.04em;
+  font-family:'Playfair Display',serif;font-size:2.5rem;
+  font-weight:900;color:#fff;letter-spacing:0.04em;margin-bottom:1rem;
 }
 .comm-platform-body{
   font-family:'Playfair Display',serif;font-size:1rem;
-  line-height:1.85;color:var(--mut);flex:1;
+  line-height:1.85;color:var(--mut);flex:1;padding:2rem 0;
 }
 .comm-platform-body strong{color:var(--off);}
+.comm-join-btn{
+  font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:#000;background:var(--g);border:none;
+  padding:0.85rem 2rem;cursor:pointer;text-decoration:none;
+  display:inline-block;transition:background 0.25s;align-self:flex-start;
+}
+.comm-join-btn:hover{background:#e8b86d;}
+.comm-join-ghost{
+  font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--g);background:transparent;border:1px solid var(--g2);
+  padding:0.85rem 2rem;cursor:pointer;text-decoration:none;
+  display:inline-block;transition:border-color 0.25s;align-self:flex-start;
+}
+.comm-join-ghost:hover{border-color:var(--g);}
+.comm-manifesto{
+  padding:4rem 3.5rem;border-bottom:1px solid #141414;
+  display:grid;grid-template-columns:200px 1fr;gap:0;
+}
+.comm-manifesto-label{
+  border-right:1px solid #141414;padding-right:3rem;
+  display:flex;flex-direction:column;justify-content:center;gap:0.5rem;
+}
+.comm-manifesto-text{
+  font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.9rem);
+  font-style:italic;color:var(--off);line-height:1.6;
+}
+.comm-manifesto-text em{color:var(--g);}
 .comm-roles{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;border:1px solid #1a1a1a;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-left:1px solid #141414;
 }
 .comm-role{
-  padding:2.5rem 2rem;background:#000;
-  border-right:1px solid #1a1a1a;transition:background 0.3s;
+  border-right:1px solid #141414;border-bottom:1px solid #141414;
+  padding:2rem 1.8rem;transition:background 0.3s;
 }
-.comm-role:last-child{border-right:none;}
-.comm-role:hover{background:#080604;}
-.comm-role-num{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:2rem;color:var(--w);opacity:0.35;margin-bottom:0.8rem;line-height:1;
+.comm-role:hover{background:#080504;}
+.comm-role-icon{
+  font-family:'Playfair Display',serif;font-size:1.8rem;
+  color:var(--w);opacity:0.4;margin-bottom:1rem;font-style:italic;
 }
 .comm-role-name{
   font-family:'Playfair Display',serif;font-size:0.95rem;
-  font-weight:700;color:var(--off);margin-bottom:0.5rem;letter-spacing:0.05em;
+  font-weight:700;color:var(--off);letter-spacing:0.05em;margin-bottom:0.6rem;
 }
-.comm-role-desc{font-size:0.52rem;letter-spacing:0.08em;color:var(--mut);line-height:1.85;}
+.comm-role-desc{font-size:0.52rem;letter-spacing:0.1em;color:var(--mut);line-height:1.85;}
 
-/* KEYS PAGE */
-.keys-intro{
-  text-align:center;padding:3rem 0 4rem;
-  border-bottom:1px solid #1a1a1a;margin-bottom:4rem;
-}
-.keys-intro p{
-  font-family:'Playfair Display',serif;font-size:1rem;
-  line-height:1.9;color:var(--mut);max-width:520px;margin:0 auto;
-}
-.keys-intro p strong{color:var(--off);}
-.keys-stats{
+/* XRPL PAGE */
+.xrpl-stats-row{
   display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;border:1px solid #1a1a1a;margin-bottom:4rem;
+  border-left:1px solid #141414;border-bottom:1px solid #141414;
 }
-.keys-stat{
-  padding:2rem 1.5rem;text-align:center;
-  background:#000;border-right:1px solid #1a1a1a;
-  transition:background 0.3s;
-}
-.keys-stat:last-child{border-right:none;}
-.keys-stat:hover{background:#080604;}
-.keys-stat-n{
-  font-family:'Playfair Display',serif;font-size:2.5rem;
+.xs{border-right:1px solid #141414;border-bottom:1px solid #141414;padding:2.5rem 2rem;}
+.xs-n{
+  font-family:'Playfair Display',serif;font-size:2.8rem;
   font-weight:900;color:var(--g);display:block;margin-bottom:0.4rem;line-height:1;
 }
-.keys-stat-l{font-size:0.48rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mut);}
-.keys-cards{
+.xs-l{font-size:0.48rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mut);}
+.xrpl-nft-row{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;border:1px solid #1a1a1a;margin-bottom:3rem;
+  border-left:1px solid #141414;
 }
-.keys-card{
-  padding:3rem 2.5rem;background:#000;
-  border-right:1px solid #1a1a1a;
+.xrpl-nft{
+  border-right:1px solid #141414;border-bottom:1px solid #141414;padding:2.5rem 2.5rem;
 }
-.keys-card:last-child{border-right:none;}
-.keys-card-badge{
+.xrpl-nft-badge{
   font-size:0.47rem;letter-spacing:0.25em;text-transform:uppercase;
   color:var(--g);border:1px solid var(--g2);
-  padding:0.22rem 0.65rem;display:inline-block;margin-bottom:1.5rem;
+  padding:0.22rem 0.65rem;display:inline-block;margin-bottom:1.2rem;
 }
-.keys-card-name{
-  font-family:'Playfair Display',serif;font-size:2rem;
+.xrpl-nft-name{
+  font-family:'Playfair Display',serif;font-size:1.8rem;
   font-weight:900;color:#fff;letter-spacing:0.04em;margin-bottom:0.4rem;
 }
-.keys-card-price{font-size:0.75rem;letter-spacing:0.18em;color:var(--g);margin-bottom:0.3rem;}
-.keys-card-ed{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);margin-bottom:1.5rem;}
-.keys-perk{
-  font-size:0.55rem;letter-spacing:0.1em;color:var(--mut);
-  padding:0.5rem 0;border-bottom:1px solid #0d0d0d;
+.xrpl-nft-price{font-size:0.8rem;letter-spacing:0.18em;color:var(--g);margin-bottom:0.3rem;}
+.xrpl-nft-ed{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);}
+.xrpl-nft-perks{margin-top:1.5rem;}
+.xnp{
+  font-size:0.52rem;letter-spacing:0.1em;color:var(--mut);
+  padding:0.45rem 0;border-bottom:1px solid #0d0d0d;
   display:flex;gap:0.7rem;
 }
-.keys-perk::before{content:'—';color:var(--g2);flex-shrink:0;}
-.keys-burn{
-  padding:2.5rem;border:1px solid #1a1a1a;
-  display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;
-  margin-bottom:3rem;
+.xnp::before{content:'—';color:var(--g2);flex-shrink:0;}
+.wallet-row{
+  grid-column:1/-1;border-right:1px solid #141414;border-bottom:1px solid #141414;
+  padding:2.5rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
 }
-.keys-burn-symbol{
-  font-family:'Playfair Display',serif;font-size:2.5rem;
-  font-weight:700;color:var(--wl);opacity:0.5;
-}
-.keys-burn-text{}
-.keys-burn-badge{
-  font-size:0.47rem;letter-spacing:0.25em;text-transform:uppercase;
-  color:var(--wl);border:1px solid var(--w);
-  padding:0.22rem 0.65rem;display:inline-block;margin-bottom:0.6rem;
-}
-.keys-burn-title{
-  font-family:'Playfair Display',serif;font-size:1.1rem;
-  font-weight:700;color:var(--off);margin-bottom:0.4rem;
-}
-.keys-burn-desc{font-size:0.52rem;letter-spacing:0.1em;color:var(--mut);line-height:1.85;}
-.wallet-block{
-  padding:2.5rem;border:1px solid #1a1a1a;
-  display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
-}
-.wallet-info .wr-status{font-size:0.5rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:0.4rem;}
-.wallet-info .wr-desc{font-family:'Playfair Display',serif;font-size:1rem;color:var(--off);font-style:italic;}
+.wr-status{font-size:0.48rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:0.4rem;}
+.wr-desc{font-family:'Playfair Display',serif;font-size:1rem;color:var(--off);font-style:italic;}
 .wr-addr{font-size:0.5rem;letter-spacing:0.12em;color:var(--g);margin-top:0.4rem;display:none;}
-.btn-g-solid{font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#000;background:var(--g);border:none;padding:0.9rem 2rem;cursor:pointer;transition:background 0.25s;white-space:nowrap;}
+
+/* BUTTONS */
+.btn-g-solid{font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:#000;background:var(--g);border:none;padding:0.85rem 1.8rem;cursor:pointer;transition:background 0.25s;white-space:nowrap;}
 .btn-g-solid:hover{background:#e8b86d;}
 
 /* FOOTER */
-footer{
-  border-top:1px solid #1a1a1a;background:#000;
-  padding:4rem 3rem;
-  display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:4rem;
-  max-width:860px;margin:0 auto;
+.site-footer{
+  border-top:1px solid #141414;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
 }
-.fc-logo img{height:18px;display:block;margin-bottom:1rem;}
-.fc-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:0.88rem;color:var(--mut);line-height:1.8;}
-.fc-head{font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--g2);margin-bottom:1.2rem;}
-.fc-links{display:flex;flex-direction:column;gap:0.8rem;}
-.fc-links a{font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);text-decoration:none;transition:color 0.25s;}
+.fc{padding:2rem 2.5rem;border-right:1px solid #141414;}
+.fc:last-child{border-right:none;}
+.fc-logo img{height:28px;display:block;margin-bottom:1rem;opacity:1;}
+.fc-tag{font-size:0.7rem;letter-spacing:0.15em;color:var(--mut);line-height:1.9;}
+.fc-head{font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--g2);margin-bottom:1rem;}
+.fc-links{display:flex;flex-direction:column;gap:0.7rem;}
+.fc-links a{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mut);text-decoration:none;transition:color 0.25s;}
 .fc-links a:hover{color:var(--g);}
-.fc-copy{margin-top:1.5rem;font-size:0.45rem;letter-spacing:0.12em;color:var(--mut2);}
-.footer-bottom{
-  border-top:1px solid #1a1a1a;padding:1.5rem 3rem;
-  display:flex;align-items:center;justify-content:space-between;
-  max-width:860px;margin:0 auto;
-}
-.footer-bottom span{font-size:0.48rem;letter-spacing:0.15em;color:var(--mut2);}
+.fc-copy{margin-top:1.5rem;font-size:0.44rem;letter-spacing:0.12em;color:var(--mut2);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(14px);transition:opacity 0.8s,transform 0.8s;}
+.rv.on{opacity:1;transform:none;}
 
 @media(max-width:768px){
   nav{padding:0 1.2rem;}
-  .nav-left a:nth-child(n+2){display:none;}
-  .nav-right a:first-child{display:none;}
-  .home-links{grid-template-columns:1fr 1fr;}
-  .home-clothing{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
-  .page-wrap{padding:3rem 1.5rem;}
-  .art-featured-block{grid-template-columns:1fr;}
-  .art-coming{grid-template-columns:1fr;}
-  .comm-platforms{grid-template-columns:1fr;}
+  .nav-left{gap:1.2rem;}
+  .nav-right{gap:1rem;}
+  nav a.nl{font-size:0.45rem;}
+  .home-hero{grid-template-columns:1fr;grid-template-rows:1fr 1fr;}
+  .home-left{border-right:none;border-bottom:1px solid #141414;padding:2.5rem 1.5rem;}
+  .home-right{padding:2.5rem 1.5rem;}
+  .msg-verse-hero{grid-template-columns:1fr;}
+  .msg-verse-left{display:none;}
+  .msg-blocks{grid-template-columns:1fr;}
+  .msg-block{border-right:none;}
+  .msg-confession{grid-template-columns:1fr;gap:2rem;}
+  .shop-intro{grid-template-columns:1fr;}
+  .shop-intro .sect-header-label{display:none;}
+  .shop-placeholder-grid{grid-template-columns:1fr 1fr;}
+  .shop-waitlist{grid-template-columns:1fr;gap:1.5rem;}
+  .art-hero{grid-template-columns:1fr;}
+  .art-hero .sect-header-label{display:none;}
+  .art-grid{grid-template-columns:1fr;}
+  .art-featured{grid-template-columns:1fr;}
+  .art-featured-img{min-height:200px;}
+  .comm-split{grid-template-columns:1fr;}
+  .comm-half{border-right:none;border-bottom:1px solid #141414;}
+  .comm-manifesto{grid-template-columns:1fr;}
+  .comm-manifesto-label{border-right:none;padding-right:0;margin-bottom:1.5rem;}
   .comm-roles{grid-template-columns:1fr 1fr;}
-  .keys-cards{grid-template-columns:1fr;}
-  .keys-stats{grid-template-columns:1fr 1fr;}
-  .msg-pillar{grid-template-columns:50px 1fr;gap:1.5rem;}
-  footer{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem;}
-  .footer-bottom{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem;}
+  .sect-header{grid-template-columns:1fr;}
+  .sect-header-label{border-right:none;}
+  .xrpl-stats-row{grid-template-columns:1fr 1fr;}
+  .xrpl-nft-row{grid-template-columns:1fr;}
+  .site-footer{grid-template-columns:1fr;}
+  .fc{border-right:none;border-bottom:1px solid #141414;}
 }
 </style>
 </head>
@@ -549,359 +470,348 @@ footer{
   <div class="nav-right">
     <a class="nl" href="#" onclick="showPage('art');return false;">Art</a>
     <a class="nl" href="#" onclick="showPage('community');return false;">Community</a>
-    <a class="nav-enter" href="#" onclick="showPage('keys');return false;">Keys</a>
+    <a class="nav-enter" href="#" onclick="showPage('xrpl');return false;">Keys</a>
   </div>
 </nav>
 
-<!-- ═══ HOME ═══ -->
+<!-- HOME -->
 <div class="page active" id="page-home">
-
   <div class="home-hero">
-    <div class="home-glow"></div>
-    <img class="home-seal rv" src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt="S7VEN KEYS"/>
-    <div class="home-wordmark rv">
-      <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/S7venkeys-name-white.png" alt="S7VEN KEYS"/>
-    </div>
-    <div class="home-tagline rv">faith &nbsp;·&nbsp; art &nbsp;·&nbsp; culture</div>
-    <div class="home-verse-block rv">
-      <blockquote class="home-verse">
-        "To you it has been given to know <em>the secrets of the kingdom</em> of God, but to others I speak in parables."
-      </blockquote>
-      <div class="home-verse-ref">Luke 8:10</div>
-    </div>
-    <div class="home-cta-row rv">
-      <a class="btn-solid" href="#" onclick="showPage('message');return false;">Unlock the Message</a>
-      <a class="btn-outline" href="#" onclick="showPage('clothing');return false;">Shop Drop 001</a>
-    </div>
-    <div class="home-links rv">
-      <div class="home-link" onclick="showPage('message')">
-        <span class="home-link-label">Message</span>
-        <span class="home-link-arrow">→</span>
+    <div class="home-left">
+      <div class="home-verse-block">
+        <div class="home-verse-label">Luke 8:10</div>
+        <blockquote class="home-verse">
+          "To you it has been given to know <em>the secrets of the kingdom</em> of God, but to others I speak in parables."
+        </blockquote>
+        <div class="home-verse-ref">Luke 8:10</div>
+        
       </div>
-      <div class="home-link" onclick="showPage('clothing')">
-        <span class="home-link-label">Clothing</span>
-        <span class="home-link-arrow">→</span>
+      <div class="home-bottom">
       </div>
-      <div class="home-link" onclick="showPage('community')">
-        <span class="home-link-label">Community</span>
-        <span class="home-link-arrow">→</span>
+    </div>
+    <div class="home-right">
+      <div class="home-seal-block">
+        <img class="home-seal" src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt="S7VEN KEYS"/>
+        <div class="home-wordmark">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/S7venkeys-name-white.png" alt="S7VEN KEYS"/>
+        </div>
+        <div class="home-cta-row">
+          <a class="nav-enter" href="#" onclick="showPage('message');return false;">Read the Message</a>
+          <a class="nav-enter" style="background:transparent;color:var(--g);border:1px solid var(--g2);" href="#" onclick="showPage('clothing');return false;">Shop</a>
+        </div>
       </div>
-      <div class="home-link" onclick="showPage('keys')">
-        <span class="home-link-label">The Keys</span>
-        <span class="home-link-arrow">→</span>
+      <div class="home-nav-links">
+        <div class="home-nav-link" onclick="showPage('message')">The Message</div>
+        <div class="home-nav-link" onclick="showPage('clothing')">Clothing</div>
+        <div class="home-nav-link" onclick="showPage('art')">Art</div>
+        <div class="home-nav-link" onclick="showPage('community')">Community</div>
       </div>
     </div>
   </div>
-
-  <!-- CLOTHING PREVIEW -->
-  <div class="home-clothing rv">
-    <div class="home-clothing-text">
-      <span class="home-clothing-tag">Drop 001 · Coming Soon</span>
-      <h2 class="home-clothing-title">Worn by those<br/>who <em>know.</em></h2>
-      <p class="home-clothing-body">Faith in the street. Premium clothing for those who carry conviction into every room. Every piece is designed with intention and a message that speaks before you say a word.</p>
-      <a class="btn-solid" href="#" onclick="showPage('clothing');return false;">View Clothing</a>
+  <!-- CLOTHING SECTION -->
+<div style="border-top:1px solid #141414;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #141414;">
+    <div style="padding:4rem 3.5rem;border-right:1px solid #141414;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;">
+      <span style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--g);">Drop 001 · Coming Soon</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;line-height:1.05;">Worn by those<br/>who <em style="color:var(--g);">know.</em></h2>
+      <p style="font-family:'Playfair Display',serif;font-size:1rem;line-height:1.85;color:#a89880;max-width:440px;">Faith in the street. Premium clothing for those who carry conviction into every room. Every piece is designed with intention and a message that speaks before you say a word.</p>
+      <a href="#" onclick="showPage('clothing');return false;" style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#000;background:var(--g);padding:0.85rem 2rem;text-decoration:none;display:inline-block;transition:background 0.25s;align-self:flex-start;">View Clothing</a>
     </div>
-    <div class="home-clothing-img">
-      <div class="clothing-card">
-        <div class="clothing-card-img">
-          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/SHIRT%20DROP%20001%20PIC.png" alt="S7K Heavyweight Tee"/>
+    <div style="display:grid;grid-template-columns:1fr 1FR;border-left:1px solid #141414;">
+      <div style="border-right:1px solid #141414;border-bottom:1px solid #141414;">
+        <div style="aspect-ratio:3/4;background:#0a0806;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" style="width:50px;height:50px;opacity:0.2;"/>
+          <span style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.25em;text-transform:uppercase;color:#4a4035;">Drop 001</span>
         </div>
-        <div class="clothing-card-overlay"><span>Coming Soon</span></div>
-        <div class="clothing-card-info">
-          <div class="clothing-card-name">S7K Heavyweight Tee</div>
-          <div class="clothing-card-detail">Drop 001 &nbsp;·&nbsp; Coming Soon</div>
+        <div style="padding:1rem 1.2rem;border-top:1px solid #141414;">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/SHIRT%20DROP%20001%20PIC.png" style="width:100%;height:100%;object-fit:cover;opacity:1;"/>
+          <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:#e8e0d0;margin-bottom:0.3rem;">ILLUMINATED HIJACKING Heavyweight Tee</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:#6b5f50;">Coming Soon</div>
+        </div>
+      </div>
+      <div style="border-bottom:1px solid #141414;">
+        <div style="aspect-ratio:3/4;background:#0a0806;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" style="width:50px;height:50px;opacity:0.2;"/>
+          <span style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.25em;text-transform:uppercase;color:#4a4035;">Drop 001</span>
+        </div>
+        <div style="padding:1rem 1.2rem;border-top:1px solid #141414;">
+          <div style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:#6b5f50;">Coming Soon</div>
+        </div>
+      </div>
+      <div style="border-right:1px solid #141414;">
+        <div style="aspect-ratio:3/4;background:#0a0806;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" style="width:50px;height:50px;opacity:0.2;"/>
+          <span style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.25em;text-transform:uppercase;color:#4a4035;">Drop 001</span>
+        </div>
+        <div style="padding:1rem 1.2rem;border-top:1px solid #141414;">
+          <div style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:#6b5f50;">Coming Soon</div>
+        </div>
+      </div>
+      <div>
+        <div style="aspect-ratio:3/4;background:#0a0806;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" style="width:50px;height:50px;opacity:0.2;"/>
+          <span style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.25em;text-transform:uppercase;color:#4a4035;">Drop 001</span>
+        </div>
+        <div style="padding:1rem 1.2rem;border-top:1px solid #141414;">
+          <div style="font-family:'Space Mono',monospace;font-size:0.45rem;letter-spacing:0.18em;text-transform:uppercase;color:#6b5f50;">Coming Soon</div>
         </div>
       </div>
     </div>
   </div>
-
+</div>
 </div>
 
-<!-- ═══ MESSAGE ═══ -->
+
+<!-- MESSAGE -->
 <div class="page" id="page-message">
-  <div class="page-wrap">
-
-    <div class="page-header rv">
-      <span class="page-eyebrow">The Message</span>
-      <h1 class="page-title">Unlock Your<br/><em>Inner Kingdom</em></h1>
-      <div class="page-divider"></div>
-      <p class="page-subtitle">Because through faith you see what others don't. Knowing and understanding the mysteries — seeing God and his hand at work.</p>
-    </div>
-
-    <div class="msg-verse-full rv">
-      <blockquote>
-        "To you it has been given to know <em>the secrets of the kingdom</em> of God, but to others I speak in parables."
-      </blockquote>
-      <cite>Luke 8:10</cite>
-    </div>
-
-    <div class="msg-pillars">
-      <div class="msg-pillar rv">
-        <div class="msg-pillar-num">I</div>
-        <div class="msg-pillar-content">
-          <div class="msg-pillar-title">The Vision</div>
-          <p class="msg-pillar-body">S7VEN KEYS exists at the intersection of <strong>faith, art, and street culture.</strong> A brand and a community for those who allow themselves to be vessels of the light — bringing the visions of heaven to earth. This is not religion. This is identity.</p>
-        </div>
+  <div class="sect-wrap">
+    <div class="msg-verse-hero rv">
+      <div class="msg-verse-left">
+        <img class="msg-seal" src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt="seal"/>
       </div>
-      <div class="msg-pillar rv">
-        <div class="msg-pillar-num">II</div>
-        <div class="msg-pillar-content">
-          <div class="msg-pillar-title">The Mysteries</div>
-          <p class="msg-pillar-body">To know the secrets of the kingdom is to see what others cannot. <strong>Sacred geometry. The number 7. Symbolism woven into every piece.</strong> Art and clothing that declares without speaking — for those who have eyes to see.</p>
-        </div>
-      </div>
-      <div class="msg-pillar rv">
-        <div class="msg-pillar-num">III</div>
-        <div class="msg-pillar-content">
-          <div class="msg-pillar-title">The Kingdom Within</div>
-          <p class="msg-pillar-body">Unlocking your inner kingdom means walking in the fullness of who God created you to be. <strong>Not ashamed. Not silent.</strong> Wearing your faith in the street the same way you carry it in your heart. <em>No separation.</em></p>
-        </div>
-      </div>
-      <div class="msg-pillar rv">
-        <div class="msg-pillar-num">IV</div>
-        <div class="msg-pillar-content">
-          <div class="msg-pillar-title">The Community</div>
-          <p class="msg-pillar-body">This is a community formed by confession — <strong>selective, not secret.</strong> Those who confess with their tongue that Jesus Christ is Lord are welcome. The door is open. Not everyone will walk through it. Seven is the number of completion — and this brand was completed before it began.</p>
-        </div>
+      <div class="msg-verse-right">
+        <div class="home-verse-label" style="margin-bottom:1.5rem;">Luke 8:10</div>
+        <blockquote class="big-verse">
+          "To you it has been given to know <em>the secrets of the kingdom</em> of God, but to others I speak in parables."
+        </blockquote>
+        <div class="verse-ref">Luke 8:10 — ESV</div>
       </div>
     </div>
-
-    <div class="msg-romans rv">
-      <blockquote>
+    <div class="msg-blocks rv">
+      <div class="msg-block">
+        <div class="msg-block-label">The Foundation</div>
+        <div class="msg-block-title">Not secret. Selective.</div>
+        <p class="msg-block-body">S7VEN KEYS is not a brand you stumble upon. It is a community formed by <strong>confession</strong> — those who confess with their tongue that Jesus Christ is Lord and wear that truth as identity, not religion. The door is open. Not everyone will walk through it.</p>
+      </div>
+      <div class="msg-block">
+        <div class="msg-block-label">The Design</div>
+        <div class="msg-block-title">Faith as architecture.</div>
+        <p class="msg-block-body">Every piece we make, every drop we release, every mark we put into the world is <strong>built with intention</strong>. Sacred geometry. The number 7. Symbolism that speaks to those who have eyes to see.</p>
+      </div>
+      <div class="msg-block">
+        <div class="msg-block-label">The Culture</div>
+        <div class="msg-block-title">Street meets sacred.</div>
+        <p class="msg-block-body">Premium clothing for those who move with purpose. We exist at the intersection of <strong>faith, art, and street culture</strong> — for people who know there is no separation between who they are on Sunday and who they are in the street.</p>
+      </div>
+      <div class="msg-block">
+        <div class="msg-block-label">The Number</div>
+        <div class="msg-block-title">Seven is completion.</div>
+        <p class="msg-block-body">God rested on the seventh day. Seven seals. Seven churches. Seven spirits. <strong>Nothing about this number is coincidental.</strong> 7 represents the point where the earthly meets the divine, where cycles complete, and where mystery lives.</p>
+      </div>
+    </div>
+    <div class="msg-confession rv">
+      <blockquote class="msg-confession-verse">
         "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, <em>thou shalt be saved.</em>"
       </blockquote>
-      <cite>Romans 10:9 — KJV</cite>
-      <p style="font-family:'Playfair Display',serif;font-size:1rem;line-height:1.9;color:var(--mut);max-width:480px;margin:0 auto 2rem;">This is the one requirement. Not a membership fee. Not a follower count. <strong style="color:var(--off);">Confess with your mouth. That is your key.</strong></p>
-      <a class="btn-solid" href="#" onclick="showPage('community');return false;">Join the Community</a>
+      <div>
+        <div class="home-verse-label" style="margin-bottom:1.2rem;">Romans 10:9 — KJV</div>
+        <p class="msg-confession-body">This is the one requirement. Not a membership fee. Not a follower count. Not an application. <strong>Confess with your mouth. That is your key.</strong></p>
+        <a class="nav-enter" href="#" onclick="showPage('community');return false;">Join the Community</a>
+      </div>
     </div>
-
   </div>
 </div>
 
-<!-- ═══ CLOTHING ═══ -->
+<!-- CLOTHING -->
 <div class="page" id="page-clothing">
-  <div class="page-wrap">
-
-    <div class="page-header rv">
-      <span class="page-eyebrow">Clothing</span>
-      <h1 class="page-title">Drop <em>001</em></h1>
-      <div class="page-divider"></div>
-      <p class="page-subtitle">Faith in the street. Premium clothing for those who carry conviction into every room.</p>
-    </div>
-
-    <div class="shop-grid rv">
-      <div class="shop-card">
-        <div class="shop-card-img">
-          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/SHIRT%20DROP%20001%20PIC.png" alt="S7K Heavyweight Tee"/>
-        </div>
-        <div class="shop-overlay"><span>Coming Soon</span></div>
-        <div class="shop-card-info">
-          <div class="shop-card-badge">Drop 001</div>
-          <div class="shop-card-name">S7K Heavyweight Tee</div>
-          <div class="shop-card-detail">Coming Soon &nbsp;·&nbsp; Limited Run</div>
-        </div>
+  <div class="sect-wrap">
+    <div class="shop-intro rv">
+      <div class="sect-header-label" style="padding:3rem 2rem;border-right:1px solid #141414;display:flex;flex-direction:column;justify-content:flex-end;gap:0.6rem;">
+        <span class="sect-num">Clothing</span>
+        <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt="" style="width:50px;height:50px;opacity:0.3;margin-top:1rem;"/>
+      </div>
+      <div class="shop-coming">
+        <div class="shop-coming-tag">First Drop · Coming Soon</div>
+        <div class="shop-coming-title">Worn by those<br/>who <em>know.</em></div>
+        <p class="shop-coming-body">Faith in the street. Premium clothing made for those who carry conviction into every room. <strong>Drop 001 is coming.</strong> Get on the list to be first through the door.</p>
       </div>
     </div>
-
-    <div class="shop-waitlist-block rv">
-      <div class="shop-waitlist-title">Be first through the door.</div>
-      <p class="shop-waitlist-sub">Drop 001 is coming. Get on the list to be notified before it goes live.</p>
+    <div class="shop-placeholder-grid rv">
+      <div class="shop-item">
+        <div class="shop-item-img"><img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/SHIRT%20DROP%20001%20PIC.png" style="width:100%;height:100%;object-fit:cover;opacity:1;"/><span class="shop-item-placeholder">Drop 001</span></div>
+        <div class="shop-item-overlay"><span>Coming Soon</span></div>
+        <div class="shop-item-info"><div class="shop-item-name">ILLUMINATED HIJACKING Heavyweight Tee</div><div class="shop-item-detail">Drop 001 &nbsp;·&nbsp; TBA</div></div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-img"><img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
+        <div class="shop-item-overlay"><span>Coming Soon</span></div>
+      
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-img"><img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt=""/><span class="shop-item-placeholder">Drop 001</span></div>
+        <div class="shop-item-overlay"><span>Coming Soon</span></div>
+      </div>
+    </div>
+    <div class="shop-waitlist rv">
+      <div>
+        <div class="shop-waitlist-label">Early Access</div>
+        <div class="shop-waitlist-title">Get notified before Drop 001 goes live.</div>
+      </div>
       <div class="waitlist-form">
         <input class="waitlist-input" type="email" placeholder="your@email.com" id="waitlist-email"/>
         <button class="waitlist-submit" onclick="joinWaitlist()">Join Waitlist</button>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- ═══ ART ═══ -->
+<!-- ART -->
 <div class="page" id="page-art">
-  <div class="page-wrap">
-
-    <div class="page-header rv">
-      <span class="page-eyebrow">Art</span>
-      <h1 class="page-title">Sacred<br/><em>Geometry</em></h1>
-      <div class="page-divider"></div>
-      <p class="page-subtitle">Every mark made with intention. Rooted in sacred symbolism, the number 7, and the geometry of faith.</p>
-    </div>
-
-    <div class="art-featured-block rv">
-      <div class="art-featured-visual">
-        <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt="777 Seal"/>
+  <div class="sect-wrap">
+    <div class="art-hero rv">
+      <div class="sect-header-label" style="padding:3rem 2rem;border-right:1px solid #141414;display:flex;flex-direction:column;justify-content:flex-end;gap:0.6rem;">
+        <span class="sect-num">Art</span>
+        <h2 class="sect-title" style="margin-top:0.5rem;">Sacred<br/><em>Geometry</em></h2>
       </div>
-      <div class="art-featured-info">
-        <span class="art-featured-tag">Signature Mark</span>
-        <h2 class="art-featured-title">The 777<br/><em>Seal</em></h2>
-        <p class="art-featured-body">Three triangles. A cross at the center. A double circle as the outer seal. <strong>This is the mark of S7VEN KEYS</strong> — the intersection of the Trinity, sacred geometry, and the covenant. Nothing in this symbol is accidental. Everything speaks to those who know how to read it.</p>
+      <div class="sect-header-right" style="padding:3rem;">
+        <p class="sect-intro">Every mark made with intention. Rooted in <strong>sacred symbolism</strong>, the number 7, and the geometry of faith. Art that speaks to those who have eyes to see.</p>
       </div>
     </div>
-
-    <div class="art-coming rv">
-      <div class="art-coming-card">
-        <div class="art-coming-num">I</div>
-        <div class="art-coming-title">Genesis Series</div>
-        <div class="art-coming-sub">Original Works &nbsp;·&nbsp; XRPL Native &nbsp;·&nbsp; Coming Soon</div>
+    <div class="art-grid rv">
+      <div class="art-featured">
+        <div class="art-featured-img">
+          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt="777 Logo"/>
+        </div>
+        <div class="art-featured-text">
+          <div class="art-featured-label">Signature Mark</div>
+          <div class="art-featured-title">The 777<br/><em>Seal</em></div>
+          <p class="art-featured-body">Three triangles. A cross at the center. A double circle as the outer seal. <strong>This is the mark of S7VEN KEYS</strong> — the intersection of the Trinity, sacred geometry, and the covenant. Nothing in this symbol is accidental.</p>
+        </div>
       </div>
-      <div class="art-coming-card">
-        <div class="art-coming-num">II</div>
-        <div class="art-coming-title">Keys Collection</div>
-        <div class="art-coming-sub">Limited Edition &nbsp;·&nbsp; 77 Prints &nbsp;·&nbsp; Coming Soon</div>
+      <div class="art-piece">
+        <div class="art-piece-img"><img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt=""/></div>
+        <div class="art-piece-caption"><div class="art-piece-title">Genesis Series</div><div class="art-piece-sub">Original Works &nbsp;·&nbsp; XRPL Native</div></div>
+      </div>
+      <div class="art-piece">
+        <div class="art-piece-img"><img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/777-LOGO-white-transparent.png" alt=""/></div>
+        <div class="art-piece-caption"><div class="art-piece-title">Keys Collection</div><div class="art-piece-sub">Limited Edition &nbsp;·&nbsp; 77 Prints</div></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- ═══ COMMUNITY ═══ -->
+<!-- COMMUNITY -->
 <div class="page" id="page-community">
-  <div class="page-wrap">
-
-    <div class="page-header rv">
-      <span class="page-eyebrow">Community</span>
-      <h1 class="page-title">The<br/><em>Circle</em></h1>
-      <div class="page-divider"></div>
-      <p class="page-subtitle">One confession. One circle. This is where those who know find each other.</p>
+  <div class="sect-wrap">
+    <div class="sect-header rv">
+      <div class="sect-header-label">
+        <span class="sect-num">COMMUNITY</span>
+        <h2 class="sect-title">The<br/>Circle</h2>
+      </div>
+      <div class="sect-header-right">
+        <p class="sect-intro">One confession. One circle. <strong>Two doors in.</strong> Join the community on Discord and Instagram</p>
+      </div>
     </div>
-
-    <div class="comm-verse rv">
-      <blockquote>
+    <div class="comm-split rv">
+      <div class="comm-half">
+        <div>
+          <div class="comm-platform-tag">Private Community</div>
+          <div class="comm-platform-name">Discord</div>
+          <p class="comm-platform-body">The inner circle. Private channels for key holders, early drop access, direct line to the brand. <strong>This is where the community actually lives.</strong> Holder roles verified on-chain. The conversation you can't have anywhere else.</p>
+        </div>
+        <a class="comm-join-btn" href="https://discord.gg/ZQfQ8n54x">Join Discord</a>
+      </div>
+      <div class="comm-half">
+        <div>
+          <div class="comm-platform-tag">Public Presence</div>
+          <div class="comm-platform-name">Instagram</div>
+          <p class="comm-platform-body">The window into the world of S7VEN KEYS. — <strong>faith, art, and culture in the street.</strong> Follow to see what's being built.</p>
+        </div>
+        <a class="comm-join-ghost" href="https://www.instagram.com/s7venkeys">Follow on Instagram</a>
+      </div>
+    </div>
+    <div class="comm-manifesto rv">
+      <div class="comm-manifesto-label">
+        <span class="sect-num">Luke 8:10</span>
+      </div>
+      <blockquote class="comm-manifesto-text">
         "To you it has been given to know <em>the secrets of the kingdom</em> — and this community is where those who know find each other."
       </blockquote>
     </div>
-
-    <div class="comm-platforms rv">
-      <div class="comm-platform">
-        <div class="comm-platform-tag">Private Community</div>
-        <div class="comm-platform-name">Discord</div>
-        <p class="comm-platform-body">The inner circle. Private channels for key holders, early drop access, and a direct line to the brand. <strong>This is where the community actually lives.</strong> Holder roles verified on-chain.</p>
-        <a class="btn-solid" href="https://discord.gg/ZQfQ8n54x" target="_blank">Join Discord</a>
-      </div>
-      <div class="comm-platform">
-        <div class="comm-platform-tag">Public Presence</div>
-        <div class="comm-platform-name">Instagram</div>
-        <p class="comm-platform-body">The window into the world of S7VEN KEYS. Art, clothing, and the message — <strong>faith, art, and culture in the street.</strong> Follow to see what's being built before it drops.</p>
-        <a class="btn-outline" href="https://www.instagram.com/s7venkeys" target="_blank">Follow on Instagram</a>
-      </div>
-    </div>
-
     <div class="comm-roles rv">
-      <div class="comm-role">
-        <div class="comm-role-num">I</div>
-        <div class="comm-role-name">Confessors</div>
-        <p class="comm-role-desc">Anyone who confesses. The door is open. Start here.</p>
-      </div>
-      <div class="comm-role">
-        <div class="comm-role-num">II</div>
-        <div class="comm-role-name">Pass Holders</div>
-        <p class="comm-role-desc">Hold a S7VEN Pass. On-chain verified. Private access unlocked.</p>
-      </div>
-      <div class="comm-role">
-        <div class="comm-role-num">III</div>
-        <div class="comm-role-name">Genesis</div>
-        <p class="comm-role-desc">7 Genesis Key holders. Founders. First and permanent.</p>
-      </div>
-      <div class="comm-role">
-        <div class="comm-role-num">IV</div>
-        <div class="comm-role-name">Builders</div>
-        <p class="comm-role-desc">Creatives, connectors, photographers. Community that builds the brand.</p>
-      </div>
+      <div class="comm-role"><div class="comm-role-icon">I</div><div class="comm-role-name">Confessors</div><p class="comm-role-desc">Anyone who confesses. The door is open. Start here.</p></div>
+      <div class="comm-role"><div class="comm-role-icon">II</div><div class="comm-role-name">Pass Holders</div><p class="comm-role-desc">Hold a S7VEN Pass. On-chain verified. Private access unlocked.</p></div>
+      <div class="comm-role"><div class="comm-role-icon">III</div><div class="comm-role-name">Genesis</div><p class="comm-role-desc">7 Genesis Key holders. Founders. First and permanent.</p></div>
+      <div class="comm-role"><div class="comm-role-icon">IV</div><div class="comm-role-name">Builders</div><p class="comm-role-desc">Creatives, connectors, photographers. Community that builds the brand.</p></div>
     </div>
-
   </div>
 </div>
 
-<!-- ═══ KEYS ═══ -->
-<div class="page" id="page-keys">
-  <div class="page-wrap">
-
-    <div class="page-header rv">
-      <span class="page-eyebrow">On-Chain · XRP Ledger</span>
-      <h1 class="page-title">The<br/><em>Keys</em></h1>
-      <div class="page-divider"></div>
-      <p class="page-subtitle">Your NFT is your membership badge — authentic, verifiable, and permanent on the XRP Ledger.</p>
-    </div>
-
-    <div class="keys-intro rv">
-      <p>S7VEN KEYS is minted on the <strong>XRP Ledger</strong> — not for the technology, but because what is built on faith should be built to last. Your key is more than a token. It is your on-chain confession. Your access. Your vote. Your place in the circle.</p>
-    </div>
-
-    <div class="keys-stats rv">
-      <div class="keys-stat"><span class="keys-stat-n">84</span><span class="keys-stat-l">Total Keys</span></div>
-      <div class="keys-stat"><span class="keys-stat-n">7%</span><span class="keys-stat-l">On-Chain Royalty</span></div>
-      <div class="keys-stat"><span class="keys-stat-n">77</span><span class="keys-stat-l">S7VEN Pass</span></div>
-      <div class="keys-stat"><span class="keys-stat-n">7</span><span class="keys-stat-l">Genesis Keys</span></div>
-    </div>
-
-    <div class="keys-cards rv">
-      <div class="keys-card">
-        <div class="keys-card-badge">Genesis Drop</div>
-        <div class="keys-card-name">Genesis Key</div>
-        <div class="keys-card-price">77 XRP</div>
-        <div class="keys-card-ed">7 Editions · Never Reprinted</div>
-        <div class="keys-perk">Founder status — permanent on-chain</div>
-        <div class="keys-perk">All S7VEN Pass benefits included</div>
-        <div class="keys-perk">Exclusive Genesis-only colorways</div>
-        <div class="keys-perk">Voting rights &amp; brand input</div>
-        <div class="keys-perk">Private Genesis channel — Discord</div>
+<!-- XRPL / KEYS -->
+<div class="page" id="page-xrpl">
+  <div class="sect-wrap">
+    <div class="sect-header rv">
+      <div class="sect-header-label">
+        <span class="sect-num">§ 005</span>
+        <h2 class="sect-title">The<br/>Keys</h2>
       </div>
-      <div class="keys-card" style="background:rgba(107,26,42,0.05);">
-        <div class="keys-card-badge" style="border-color:var(--wl);color:var(--wl);">Open Drop</div>
-        <div class="keys-card-name">S7VEN Pass</div>
-        <div class="keys-card-price">7 XRP</div>
-        <div class="keys-card-ed">77 Editions · No Reprints</div>
-        <div class="keys-perk">Private community access</div>
-        <div class="keys-perk">48hr early access on every drop</div>
-        <div class="keys-perk">10% discount — all products</div>
-        <div class="keys-perk">Voting rights &amp; brand input</div>
-        <div class="keys-perk">Burn 2 Passes → claim Genesis Key</div>
+      <div class="sect-header-right">
+        <p class="sect-intro">KEYS are minted on the <strong>XRP Ledger</strong> — not for the technology, but because what is built on faith should be built to last. Permanent. On-chain.</p>
       </div>
     </div>
-
-    <div class="keys-burn rv">
-      <div class="keys-burn-symbol">2→1</div>
-      <div class="keys-burn-text">
-        <div class="keys-burn-badge">Burn Mechanic</div>
-        <div class="keys-burn-title">Burn 2 Passes. Claim 1 Genesis Key.</div>
-        <p class="keys-burn-desc">On-chain. Trustless. Permanent. The path to Genesis is through sacrifice.</p>
+    <div class="xrpl-stats-row rv">
+      <div class="xs"><span class="xs-n">84</span><span class="xs-l">Keys Minted</span></div>
+      <div class="xs"><span class="xs-n">77</span><span class="xs-l">S7VEN Pass Editions</span></div>
+      <div class="xs"><span class="xs-n">7</span><span class="xs-l">Genesis Editions</span></div>
+    </div>
+    <div class="xrpl-nft-row rv">
+      <div class="xrpl-nft">
+        <div class="xrpl-nft-badge">Genesis Drop</div>
+        <div class="xrpl-nft-name">Genesis Key</div>
+        <div class="xrpl-nft-price">77 XRP</div>
+        <div class="xrpl-nft-ed">7 Editions &nbsp;·&nbsp; Never Reprinted</div>
+        <div class="xrpl-nft-perks">
+          <div class="xnp">Founder status — permanent on-chain</div>
+          <div class="xnp">All S7VEN Pass benefits included</div>
+          <div class="xnp">Exclusive Genesis-only colorways</div>
+          <div class="xnp">Private Genesis channel — Discord</div>
+        </div>
+      </div>
+      <div class="xrpl-nft" style="background:rgba(107,26,42,0.06);">
+        <div class="xrpl-nft-badge" style="border-color:var(--wl);color:var(--wl);">Open Drop</div>
+        <div class="xrpl-nft-name">S7VEN Pass</div>
+        <div class="xrpl-nft-price">7 XRP</div>
+        <div class="xrpl-nft-ed">77 Editions &nbsp;·&nbsp; No Reprints</div>
+        <div class="xrpl-nft-perks">
+          <div class="xnp">Private community access</div>
+          <div class="xnp">48hr early access on every drop</div>
+          <div class="xnp">10% discount — all products</div>
+        </div>
+      </div>
+      <div class="wallet-row">
+        <div>
+          <span class="wr-status" id="wstat">Wallet not connected</span>
+          <div class="wr-desc">Connect your Xaman wallet to verify holder status and unlock your access.</div>
+          <div class="wr-addr" id="waddr"></div>
+        </div>
+        <button class="btn-g-solid" id="wbtn" onclick="connectWallet()">Connect Xaman</button>
       </div>
     </div>
-
-    <div class="wallet-block rv">
-      <div class="wallet-info">
-        <span class="wr-status" id="wstat">Wallet not connected</span>
-        <div class="wr-desc">Connect your Xaman wallet to verify holder status and unlock your access.</div>
-        <div class="wr-addr" id="waddr"></div>
-      </div>
-      <button class="btn-g-solid" id="wbtn" onclick="connectWallet()">Connect Xaman</button>
-    </div>
-
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div>
+<footer class="site-footer">
+  <div class="fc">
     <div class="fc-logo"><img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/S7venkeys-name-white.png" alt="S7VEN KEYS"/></div>
-    <div class="fc-tag">Unlock Your Inner Kingdom</div>
-    <div class="fc-copy" style="margin-top:1rem;">faith · art · culture<br/>built on the XRP Ledger</div>
+    <div class="fc-tag">Unlock Your Inner Kingdom<br/>built on the XRP Ledger</div>
   </div>
-  <div>
+  <div class="fc">
     <div class="fc-head">Community</div>
     <div class="fc-links">
-      <a href="https://discord.gg/ZQfQ8n54x" target="_blank">Discord</a>
-      <a href="https://www.instagram.com/s7venkeys" target="_blank">Instagram</a>
+      <a href="https://discord.gg/ZQfQ8n54x">Discord</a>
+      <a href="https://www.instagram.com/s7venkeys">Instagram</a>
       <a href="#">Twitter / X</a>
     </div>
   </div>
-  <div>
+  <div class="fc">
     <div class="fc-head">Pages</div>
     <div class="fc-links">
       <a href="#" onclick="showPage('message');return false;">Message</a>
       <a href="#" onclick="showPage('clothing');return false;">Clothing</a>
       <a href="#" onclick="showPage('art');return false;">Art</a>
       <a href="#" onclick="showPage('community');return false;">Community</a>
-      <a href="#" onclick="showPage('keys');return false;">The Keys</a>
+      <a href="#" onclick="showPage('xrpl');return false;">Keys / XRPL</a>
     </div>
     <div class="fc-copy">© 2025 S7VEN KEYS · All NFTs on the XRP Ledger</div>
   </div>
@@ -940,7 +850,8 @@ async function joinWaitlist(){
   const btn=document.querySelector('.waitlist-submit');
   if(!e||!e.value)return;
   const email=e.value;
-  btn.textContent='Adding...';btn.style.opacity='0.6';
+  btn.textContent='Adding...';
+  btn.style.opacity='0.6';
   try{
     const res=await fetch('/api/subscribe',{
       method:'POST',
@@ -948,13 +859,17 @@ async function joinWaitlist(){
       body:JSON.stringify({email:email})
     });
     if(res.ok){
-      e.value='';e.placeholder='You\'re on the list.';
-      btn.textContent='✓ Added';btn.style.opacity='1';
+      e.value='';
+      e.placeholder='You\'re on the list.';
+      btn.textContent='✓ Added';
+      btn.style.opacity='1';
     }else{
-      btn.textContent='Try Again';btn.style.opacity='1';
+      btn.textContent='Try Again';
+      btn.style.opacity='1';
     }
   }catch(err){
-    btn.textContent='Try Again';btn.style.opacity='1';
+    btn.textContent='Try Again';
+    btn.style.opacity='1';
   }
 }
 </script>
