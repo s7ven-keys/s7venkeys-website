@@ -619,15 +619,6 @@ footer{
         </div>
       </div>
     </div>
-    <div style="padding:4rem 3rem;border-top:1px solid #1a1a1a;max-width:860px;margin:0 auto;text-align:center;">
-  <div style="font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:#c9963a;margin-bottom:1rem;">Drop 001 · Early Access</div>
-  <div style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:#fff;margin-bottom:0.6rem;">Be first through the door.</div>
-  <p style="font-family:'Playfair Display',serif;font-size:1rem;color:#a89880;margin-bottom:2rem;line-height:1.8;">Drop 001 is coming. Get on the list to be notified before it goes live.</p>
-  <div class="waitlist-form">
-    <input class="waitlist-input" type="email" placeholder="your@email.com" id="home-waitlist-email"/>
-    <button class="waitlist-submit" onclick="homeJoinWaitlist()">Join Waitlist</button>
-  </div>
-</div>
   </div>
 
 </div>
@@ -994,28 +985,6 @@ function homeGoTo(n){
 function homeNext(){homeGoTo((homeCurrent+1)%slides.length);}
 function homePrev(){homeGoTo((homeCurrent-1+slides.length)%slides.length);}
 
-async function homeJoinWaitlist(){
-  const e=document.getElementById('home-waitlist-email');
-  const btn=document.querySelectorAll('.waitlist-submit')[1];
-  if(!e||!e.value)return;
-  const email=e.value;
-  btn.textContent='Adding...';btn.style.opacity='0.6';
-  try{
-    const res=await fetch('/api/subscribe',{
-      method:'POST',
-      headers:{'content-type':'application/json'},
-      body:JSON.stringify({email:email})
-    });
-    if(res.ok){
-      e.value='';e.placeholder='You\'re on the list.';
-      btn.textContent='✓ Added';btn.style.opacity='1';
-    }else{
-      btn.textContent='Try Again';btn.style.opacity='1';
-    }
-  }catch(err){
-    btn.textContent='Try Again';btn.style.opacity='1';
-  }
-}
 </script>
 </body>
 </html>
