@@ -603,9 +603,15 @@ footer{
     </div>
     <div class="home-clothing-img">
       <div class="clothing-card">
-        <div class="clothing-card-img">
-          <img src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/drop001back.jpg" alt="Inner Kingdom Heavyweight Tee"/>
-        </div>
+        <div class="clothing-card-img" style="position:relative;">
+  <img id="home-carousel-img" src="https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/SHIRT%20DROP%20001%20PIC.png" alt="S7K Heavyweight Tee" style="width:100%;height:100%;object-fit:cover;transition:opacity 0.4s ease;"/>
+  <button onclick="homePrev()" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#c9963a;border:1px solid #c9963a;width:32px;height:32px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:2;">‹</button>
+  <button onclick="homeNext()" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#c9963a;border:1px solid #c9963a;width:32px;height:32px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:2;">›</button>
+  <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2;">
+    <div id="home-dot-0" style="width:6px;height:6px;background:#c9963a;border-radius:50%;"></div>
+    <div id="home-dot-1" style="width:6px;height:6px;background:#4a4035;border-radius:50%;"></div>
+  </div>
+</div>
         <div class="clothing-card-overlay"><span>Coming Soon</span></div>
         <div class="clothing-card-info">
           <div class="clothing-card-name">Inner Kingdom Heavyweight Tee</div>
@@ -966,6 +972,18 @@ function goToSlide(n){
 }
 function nextSlide(){goToSlide((current+1)%slides.length);}
 function prevSlide(){goToSlide((current-1+slides.length)%slides.length);}
+let homeCurrent=0;
+function homeGoTo(n){
+  homeCurrent=n;
+  const img=document.getElementById('home-carousel-img');
+  img.style.opacity='0';
+  setTimeout(()=>{img.src=slides[homeCurrent];img.style.opacity='1';},300);
+  slides.forEach((_,i)=>{
+    document.getElementById('home-dot-'+i).style.background=i===homeCurrent?'#c9963a':'#4a4035';
+  });
+}
+function homeNext(){homeGoTo((homeCurrent+1)%slides.length);}
+function homePrev(){homeGoTo((homeCurrent-1+slides.length)%slides.length);}
 </script>
 </body>
 </html>
