@@ -950,6 +950,22 @@ async function joinWaitlist(){
     btn.textContent='Try Again';btn.style.opacity='1';
   }
 }
+const slides=[
+  'https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/drop001back.jpg',
+  'https://raw.githubusercontent.com/s7ven-keys/s7venkeys-website/main/drop001front.jpg'
+];
+let current=0;
+function goToSlide(n){
+  current=n;
+  const img=document.getElementById('carousel-img');
+  img.style.opacity='0';
+  setTimeout(()=>{img.src=slides[current];img.style.opacity='1';},300);
+  slides.forEach((_,i)=>{
+    document.getElementById('dot-'+i).style.background=i===current?'#c9963a':'#4a4035';
+  });
+}
+function nextSlide(){goToSlide((current+1)%slides.length);}
+function prevSlide(){goToSlide((current-1+slides.length)%slides.length);}
 </script>
 </body>
 </html>
